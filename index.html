@@ -28,7 +28,6 @@
             overflow-x: hidden;
         }
         
-        /* Fondo especial */
         .background {
             position: fixed;
             top: 0;
@@ -98,6 +97,13 @@
             color: #ffd1dc;
             max-width: 500px;
             margin: 0 auto;
+            font-style: italic;
+        }
+        
+        .years-subtitle {
+            font-size: 1.2rem;
+            color: #ffd1dc;
+            margin: 10px 0 30px;
             font-style: italic;
         }
         
@@ -179,8 +185,8 @@
         }
         
         .letter {
-            background: linear-gradient(to bottom, #fff0f5 0%, #ffe4e9 100%);
-            border: 2px solid #ffb6c1;
+            background: rgba(255, 240, 245, 0.85);
+            border: 2px solid rgba(255, 182, 193, 0.7);
             border-radius: 20px;
             padding: 40px;
             width: 100%;
@@ -193,6 +199,7 @@
             z-index: 5;
             max-height: 80vh;
             overflow-y: auto;
+            backdrop-filter: blur(10px);
         }
         
         .letter::before {
@@ -202,7 +209,7 @@
             left: 0;
             right: 0;
             height: 10px;
-            background: linear-gradient(to right, #ff9eb5, #ff6b8b, #ff9eb5);
+            background: linear-gradient(to right, rgba(255, 158, 181, 0.7), rgba(255, 107, 139, 0.7), rgba(255, 158, 181, 0.7));
             border-radius: 20px 20px 0 0;
         }
         
@@ -228,41 +235,17 @@
             text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
         }
         
-        .letter-header::after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 150px;
-            height: 3px;
-            background: linear-gradient(to right, #ffb6c1, #ff6b8b, #ffb6c1);
-            border-radius: 3px;
-        }
-        
-        .letter-header::before {
-            content: "❤";
-            position: absolute;
-            left: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
+        .letter-subtitle {
+            text-align: center;
+            font-style: italic;
+            margin-bottom: 30px;
             color: #ff6b8b;
-        }
-        
-        .letter-header::after {
-            content: "❤";
-            position: absolute;
-            right: -40px;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: #ff6b8b;
+            font-size: 1.2rem;
         }
         
         .reasons-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 1fr;
             gap: 20px;
             margin: 30px 0;
         }
@@ -271,17 +254,17 @@
             background: rgba(255, 182, 193, 0.2);
             padding: 18px 20px;
             border-radius: 15px;
-            border-left: 5px solid #ff6b8b;
+            border-left: 5px solid rgba(255, 107, 139, 0.7);
             transition: all 0.4s ease;
             position: relative;
-            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.3);
+            box-shadow: 0 4px 15px rgba(255, 182, 193, 0.2);
             backdrop-filter: blur(5px);
         }
         
         .reason:hover {
             transform: translateY(-5px) translateX(5px);
             background: rgba(255, 182, 193, 0.3);
-            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.4);
+            box-shadow: 0 8px 25px rgba(255, 182, 193, 0.3);
         }
         
         .reason-number {
@@ -300,27 +283,35 @@
             left: 0;
             width: 100%;
             height: 2px;
-            background: linear-gradient(to right, #ff6b8b, transparent);
+            background: linear-gradient(to right, rgba(255, 107, 139, 0.7), transparent);
+        }
+        
+        .reason-150 {
+            background: rgba(255, 182, 193, 0.3);
+            padding: 25px;
+            border: 2px solid rgba(255, 107, 139, 0.7);
+            box-shadow: 0 5px 20px rgba(255, 182, 193, 0.4);
+            transform: scale(1.02);
+            z-index: 2;
+        }
+        
+        .reason-150:hover {
+            transform: scale(1.03) translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 182, 193, 0.5);
+        }
+        
+        .reason-150 .reason-number {
+            font-size: 1.4rem;
+            color: #ff4d7a;
         }
         
         .letter-signature {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
-            text-align: right;
+            font-size: 3rem;
+            text-align: center;
             color: #ff6b8b;
             margin-top: 40px;
-            position: relative;
-            padding-right: 40px;
-        }
-        
-        .letter-signature::before {
-            content: "";
-            position: absolute;
-            top: 50%;
-            right: 0;
-            width: 30px;
-            height: 2px;
-            background: #ff6b8b;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
         }
         
         .hearts-container {
@@ -342,36 +333,35 @@
             animation: fall linear forwards;
         }
         
-        .message {
-            font-style: italic;
-            text-align: center;
-            margin-top: 30px;
+        .countdown-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
             color: #ffd1dc;
-            font-size: 1.2rem;
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
             opacity: 0;
             transform: translateY(20px);
-            transition: all 1s ease 0.5s;
+            transition: all 1s ease;
+        }
+        
+        .show-countdown-title {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         footer {
             margin-top: 40px;
             color: #ffd1dc;
-            font-size: 1rem;
+            font-size: 1.2rem;
             text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
         }
         
-        /* Contador de tiempo juntos - ESTILOS MEJORADOS */
         .countdown {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
-            margin-top: 30px;
+            margin-top: 15px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease;
@@ -424,7 +414,6 @@
             font-weight: 500;
         }
         
-        /* Estilo especial para años */
         .countdown-box.years {
             background: linear-gradient(145deg, rgba(255, 182, 193, 0.4), rgba(255, 182, 193, 0.3));
             transform: scale(1.05);
@@ -453,7 +442,6 @@
             transform: scale(1.08) translateY(-5px);
         }
         
-        /* Efecto de conteo para todos los números */
         .counting {
             animation: countAnimation 0.5s ease;
         }
@@ -484,6 +472,9 @@
         .music-icon {
             font-size: 2rem;
             color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .now-playing {
@@ -520,27 +511,15 @@
             z-index: 20;
         }
         
-        .print-button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            background: linear-gradient(to right, #ff9eb5, #ff6b8b);
-            color: white;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            font-family: 'Playfair Display', serif;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 158, 181, 0.4);
+        .heart-decoration {
+            position: absolute;
+            font-size: 2rem;
+            color: #ff6b8b;
+            opacity: 0.7;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
         }
         
-        .print-button:hover {
-            background: linear-gradient(to right, #ff6b8b, #ff9eb5);
-            transform: scale(1.05) translateY(-3px);
-            box-shadow: 0 8px 20px rgba(255, 158, 181, 0.5);
-        }
-        
-        /* Animations */
         @keyframes gradientBG {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -594,7 +573,7 @@
         @keyframes countAnimation {
             0% { transform: scale(1); }
             50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+           100% { transform: scale(1); }
         }
         
         .open .envelope {
@@ -612,7 +591,7 @@
             opacity: 1;
         }
         
-        .show-message {
+        .show-countdown-title {
             opacity: 1;
             transform: translateY(0);
         }
@@ -628,15 +607,6 @@
             pointer-events: none;
             height: 0;
             margin-bottom: 0;
-        }
-        
-        .heart-decoration {
-            position: absolute;
-            font-size: 2rem;
-            color: #ff6b8b;
-            opacity: 0.7;
-            z-index: -1;
-            animation: float 6s ease-in-out infinite;
         }
         
         @media (max-width: 900px) {
@@ -686,10 +656,6 @@
                 font-size: 0.8rem;
             }
             
-            .reasons-container {
-                grid-template-columns: 1fr;
-            }
-            
             .letter {
                 padding: 30px 20px;
             }
@@ -698,9 +664,8 @@
                 font-size: 2.8rem;
             }
             
-            .letter-header::before,
-            .letter-header::after {
-                display: none;
+            .countdown-title {
+                font-size: 2rem;
             }
         }
         
@@ -760,8 +725,11 @@
             .subtitle {
                 font-size: 1.1rem;
             }
+            .years-subtitle {
+                font-size: 1rem;
+            }
             .letter-signature {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .countdown {
@@ -794,6 +762,18 @@
             .reason {
                 padding: 15px;
             }
+            
+            .reason-150 {
+                padding: 20px;
+            }
+            
+            .countdown-title {
+                font-size: 1.8rem;
+            }
+            
+            footer {
+                font-size: 1.1rem;
+            }
         }
     </style>
 </head>
@@ -801,7 +781,6 @@
     <div class="background" id="background"></div>
     <div class="light-effect"></div>
     
-    <!-- Reproductor de música -->
     <div class="music-player" id="musicPlayer">
         <div class="music-icon">🎵</div>
         <audio id="backgroundMusic" loop>
@@ -812,7 +791,6 @@
     
     <div class="now-playing" id="nowPlaying">Lovers Rock - TV Girl</div>
     
-    <!-- Corazones decorativos sutiles -->
     <div class="heart-decoration" style="top: 10%; left: 5%;">❤</div>
     <div class="heart-decoration" style="top: 15%; right: 7%;">❤</div>
     <div class="heart-decoration" style="bottom: 20%; left: 8%;">❤</div>
@@ -821,6 +799,7 @@
     <div class="container">
         <header id="header">
             <h1>Para mi Amor</h1>
+            <p class="years-subtitle">10 razones por cada año que tienes</p>
             <p class="subtitle">Haz clic en el sobre para abrir mi carta de amor</p>
         </header>
         
@@ -837,23 +816,18 @@
         <div class="letter-container" id="letterContainer">
             <div class="letter">
                 <div class="letter-header">150 Razones Para Amarte</div>
+                <div class="letter-subtitle">10 razones por cada año de tu vida</div>
                 
                 <div class="reasons-container" id="reasonsContainer">
                     <!-- Las razones se generarán dinámicamente con JavaScript -->
                 </div>
                 
-                <div class="letter-signature">
-                    Con todo mi amor,<br>
-                    Tu novio
-                </div>
-
-                <button class="print-button" onclick="window.print()">Imprimir estas razones</button>
+                <div class="letter-signature">TE AMOOOOO 💗</div>
             </div>
         </div>
         
-        <p class="message" id="message">Cada una de estas razones viene directamente de mi corazón.<br>Te amo más de lo que las palabras pueden expresar.</p>
+        <h2 class="countdown-title" id="countdownTitle">Tiempo juntitos</h2>
         
-        <!-- Contador de tiempo juntos - MEJORADO -->
         <div class="countdown" id="countdown">
             <div class="countdown-box years">
                 <div class="countdown-value" id="years">0</div>
@@ -881,9 +855,7 @@
             </div>
         </div>
         
-        <footer>
-            Hecho con ❤ para ti - Para siempre
-        </footer>
+        <footer>para mi princesa hermosa - Isabella 💗</footer>
     </div>
     
     <div class="hearts-container" id="heartsContainer"></div>
@@ -893,21 +865,19 @@
         document.addEventListener('DOMContentLoaded', function() {
             const envelopeContainer = document.getElementById('envelopeContainer');
             const letterContainer = document.getElementById('letterContainer');
-            const message = document.getElementById('message');
             const heartsContainer = document.getElementById('heartsContainer');
             const background = document.getElementById('background');
             const header = document.getElementById('header');
             const musicPlayer = document.getElementById('musicPlayer');
             const backgroundMusic = document.getElementById('backgroundMusic');
             const countdown = document.getElementById('countdown');
+            const countdownTitle = document.getElementById('countdownTitle');
             const nowPlaying = document.getElementById('nowPlaying');
             const reasonsContainer = document.getElementById('reasonsContainer');
             const secretMessage = document.getElementById('secretMessage');
             
-            // Fecha de inicio de la relación (19 de diciembre de 2024)
             const startDate = new Date('2024-12-19');
             
-            // Variables para controlar la animación de conteo
             let lastValues = {
                 years: 0,
                 months: 0,
@@ -917,10 +887,8 @@
                 seconds: 0
             };
             
-            // Crear fondo de estrellas y corazones flotantes
             createBackground();
             
-            // Configurar reproductor de música
             let isMusicPlaying = false;
             
             musicPlayer.addEventListener('click', function() {
@@ -930,7 +898,6 @@
                         nowPlaying.classList.add('show');
                         isMusicPlaying = true;
                         
-                        // Ocultar el texto después de 3 segundos
                         setTimeout(() => {
                             nowPlaying.classList.remove('show');
                         }, 3000);
@@ -946,7 +913,6 @@
                 }
             });
             
-            // Mostrar mensaje secreto
             window.showSecretMessage = function(event, message) {
                 secretMessage.textContent = message;
                 secretMessage.style.top = (event.clientY - 40) + 'px';
@@ -958,7 +924,6 @@
                 }, 2000);
             };
             
-            // Reproducir música automáticamente al abrir la carta
             function playBackgroundMusic() {
                 if (!isMusicPlaying) {
                     backgroundMusic.play().then(() => {
@@ -966,7 +931,6 @@
                         nowPlaying.classList.add('show');
                         isMusicPlaying = true;
                         
-                        // Ocultar el texto después de 3 segundos
                         setTimeout(() => {
                             nowPlaying.classList.remove('show');
                         }, 3000);
@@ -976,12 +940,10 @@
                 }
             }
             
-            // Actualizar contador de tiempo juntos
             function updateCountdown() {
                 const now = new Date();
                 const diff = now - startDate;
                 
-                // Si la fecha aún no ha llegado, mostrar ceros
                 if (diff < 0) {
                     document.getElementById('years').textContent = 0;
                     document.getElementById('months').textContent = 0;
@@ -999,7 +961,6 @@
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
                 const seconds = Math.floor((diff % (1000 * 60)) / 1000);
                 
-                // Actualizar valores con animación si cambian
                 updateWithAnimation('years', years);
                 updateWithAnimation('months', months);
                 updateWithAnimation('days', days);
@@ -1007,11 +968,9 @@
                 updateWithAnimation('minutes', minutes);
                 updateWithAnimation('seconds', seconds);
                 
-                // Guardar valores actuales para la próxima comparación
                 lastValues = { years, months, days, hours, minutes, seconds };
             }
             
-            // Función para actualizar con animación
             function updateWithAnimation(elementId, newValue) {
                 const element = document.getElementById(elementId);
                 const currentValue = parseInt(element.textContent);
@@ -1020,262 +979,247 @@
                     element.textContent = newValue;
                     element.classList.add('counting');
                     
-                    // Remover la clase después de la animación
                     setTimeout(() => {
                         element.classList.remove('counting');
                     }, 500);
                 }
             }
             
-            setInterval(updateCountdown, 1000); // Actualiza cada segundo
+            setInterval(updateCountdown, 1000);
             updateCountdown();
             
-            // Generar las 150 razones para amarte
             function generateReasons() {
                 const reasons = [
-                    "1. Por tu sonrisa que ilumina mis días",
-                    "2. Por tu forma de mirarme como si fuera el hombre más importante del mundo",
-                    "3. Por tu bondad con todos los que te rodean",
-                    "4. Por tu sentido del humor que siempre me hace reír",
-                    "5. Por tu inteligencia que me inspira",
-                    "6. Por tu forma de entender mis silencios",
-                    "7. Por cómo cuidas de mí cuando estoy enfermo",
-                    "8. Por tu pasión por las cosas que te importan",
-                    "9. Por tu capacidad para perdonar",
-                    "10. Por tu amor incondicional",
-                    
-                    "11. Por cómo me haces ser mejor persona",
-                    "12. Por tu voz que calma mi alma",
-                    "13. Por tu forma de abrazarme como si el mundo se detuviera",
-                    "14. Por tu honestidad en cada momento",
-                    "15. Por tu valentía para enfrentar los desafíos",
-                    "16. Por tu creatividad que siempre me sorprende",
-                    "17. Por tu paciencia con mis defectos",
-                    "18. Por tu forma de celebrar mis logros",
-                    "19. Por tu compañía que hace todo mejor",
-                    "20. Por tu risa contagiosa",
-                    
-                    "21. Por tu optimismo incluso en días difíciles",
-                    "22. Por tu forma de cocinar con amor",
-                    "23. Por tu dedicación a lo que te propones",
-                    "24. Por tu sensibilidad hacia los demás",
-                    "25. Por tu apoyo incondicional a mis sueños",
-                    "26. Por tu elegancia natural",
-                    "27. Por tu fortaleza en momentos difíciles",
-                    "28. Por tu ternura cuando más lo necesito",
-                    "29. Por tu forma de hacer sentir especial a cada persona",
-                    "30. Por tu capacidad para encontrar belleza en lo simple",
-                    
-                    "31. Por tu lealtad que nunca cuestiono",
-                    "32. Por tu espontaneidad que alegra mis días",
-                    "33. Por tu sabiduría al aconsejarme",
-                    "34. Por tu energía positiva que contagias",
-                    "35. Por tu forma de amarme sin condiciones",
-                    "36. Por tu romanticismo que mantiene viva nuestra llama",
-                    "37. Por tu generosidad sin esperar nada a cambio",
-                    "38. Por tu perseverancia ante los obstáculos",
-                    "39. Por tu humildad a pesar de tus virtudes",
-                    "40. Por tu complicidad que hace único nuestro vínculo",
-                    
-                    "41. Por tu mirada que dice más que mil palabras",
-                    "42. Por tu forma de escuchar con atención genuina",
-                    "43. Por tu calidez que reconforta mi corazón",
-                    "44. Por tu estilo único que te hace irrepetible",
-                    "45. Por tu curiosidad por aprender cosas nuevas",
-                    "46. Por tu compromiso con nuestras metas",
-                    "47. Por tu alegría que ilumina cualquier lugar",
-                    "48. Por tu honestidad emocional",
-                    "49. Por tu capacidad para sorprenderme",
-                    "50. Por tu amor que transformó mi vida",
-                    
-                    "51. Por tu sonrisa al despertar",
-                    "52. Por tu forma de cantar aunque no seas profesional",
-                    "53. Por tu entusiasmo por las pequeñas cosas",
-                    "54. Por tu dedicación a nuestra relación",
-                    "55. Por tu forma de bailar sin importar quién vea",
-                    "56. Por tu valentía para ser auténtica",
-                    "57. Por tu complicidad en mis travesuras",
-                    "58. Por tu apoyo en mis decisiones",
-                    "59. Por tu respeto hacia mis espacios",
-                    "60. Por tu amor que crece cada día",
-                    
-                    "61. Por tu forma de resolver problemas con calma",
-                    "62. Por tu intuición que casi nunca se equivoca",
-                    "63. Por tu capacidad para hacer amigos everywhere",
-                    "64. Por tu amor por los animales",
-                    "65. Por tu forma de cuidar las plantas",
-                    "66. Por tu dedicación a tu familia",
-                    "67. Por tu sonrisa cuando duermes",
-                    "68. Por tu forma de animarme cuando estoy triste",
-                    "69. Por tu honestidad intelectual",
-                    "70. Por tu amor que siento incluso a la distancia",
-                    
-                    "71. Por tu forma de decirme las cosas con dulzura",
-                    "72. Por tu valentía para probar cosas nuevas",
-                    "73. Por tu perseverancia en tus proyectos",
-                    "74. Por tu capacidad para perdonar mis errores",
-                    "75. Por tu forma de recordar detalles importantes",
-                    "76. Por tu amor por la naturaleza",
-                    "77. Por tu sonrisa cuando te doy a un regalo",
-                    "78. Por tu forma de organizar todo",
-                    "79. Por tu paciencia para enseñarme",
-                    "80. Por tu amor que me hace sentir completo",
-                    
-                    "81. Por tu forma de mirar las estrellas",
-                    "82. Por tu entusiasmo en las mañanas",
-                    "83. Por tu dedicación a tu trabajo",
-                    "84. Por tu amor por la lectura",
-                    "85. Por tu forma de disfrutar la lluvia",
-                    "86. Por tu sonrisa cuando cocino para ti",
-                    "87. Por tu valentía para defender lo que crees",
-                    "88. Por tu forma de cuidar nuestro planeta",
-                    "89. Por tu amor que me inspira a ser mejor",
-                    "90. Por tu presencia que calma mis tormentas",
-                    
-                    "91. Por tu forma de decir 'te amo' cada día",
-                    "92. Por tu sonrisa cuando veo tus fotos",
-                    "93. Por tu amor que transforma lo ordinario en extraordinario",
-                    "94. Por tu forma de hacer que cada día sea especial",
-                    "95. Por tu dedicación a hacer feliz a los demás",
-                    "96. Por tu valentía para enfrentar tus miedos",
-                    "97. Por tu forma de ver lo mejor en cada persona",
-                    "98. Por tu amor que es mi mayor fortuna",
-                    "99. Por tu sonrisa que es mi lugar favorito",
-                    "100. Por ser tú, exactamente como eres",
-                    
-                    "101. Por tu forma de abrazar mis sueños como propios",
-                    "102. Por tu paciencia cuando enseñas a otros",
-                    "103. Por tu valentía para cambiar lo que no te gusta",
-                    "104. Por tu forma de celebrar la vida cada día",
-                    "105. Por tu dedicación a mantener nuestras tradiciones",
-                    "106. Por tu amor que me da fuerzas para continuar",
-                    "107. Por tu sonrisa que es mi refugio seguro",
-                    "108. Por tu forma de encontrar soluciones creativas",
-                    "109. Por tu compromiso con hacer el bien",
-                    "110. Por tu amor que es el regalo más valioso",
-                    
-                    "111. Por tu forma de cantar en la ducha",
-                    "112. Por tu entusiasmo por los días de nieve",
-                    "113. Por tu dedicación a mantener viva la magia",
-                    "114. Por tu amor que hace que todo tenga sentido",
-                    "115. Por tu sonrisa cuando ves a un bebé",
-                    "116. Por tu forma de disfrutar un buen café",
-                    "117. Por tu valentía para seguir tu corazón",
-                    "118. Por tu amor que es mi mayor inspiración",
-                    "119. Por tu forma de hacer que me sienta especial",
-                    "120. Por ser la razón de mi felicidad",
-                    
-                    "121. Por tu forma de mirar el atardecer",
-                    "122. Por tu entusiasmo por aprender cosas nuevas",
-                    "123. Por tu dedicación a cuidar nuestro amor",
-                    "124. Por tu amor que supera cualquier obstáculo",
-                    "125. Por tu sonrisa cuando logras algo importante",
-                    "126. Por tu forma de apoyar mis pasiones",
-                    "127. Por tu valentía para ser vulnerable conmigo",
-                    "128. Por tu amor que es mi mayor tesoro",
-                    "129. Por tu forma de hacer que cada momento cuente",
-                    "130. Por ser mi confidente y mejor amiga",
-                    
-                    "131. Por tu forma de disfrutar la música",
-                    "132. Por tu entusiasmo por viajar juntos",
-                    "133. Por tu dedicación a mantener nuestra conexión",
-                    "134. Por tu amor que crece con el tiempo",
-                    "135. Por tu sonrisa cuando me ves después de mucho tiempo",
-                    "136. Por tu forma de hacer que lo cotidiano sea especial",
-                    "137. Por tu valentía para perseguir tus sueños",
-                    "138. Por tu amor que es mi fuerza y debilidad",
-                    "139. Por tu forma de recordar por qué nos elegimos",
-                    "140. Por ser el amor de mi vida",
-                    
-                    "141. Por tu forma de bailar bajo la lluvia",
-                    "142. Por tu entusiasmo por construir nuestro futuro",
-                    "143. Por tu dedicación a nuestra felicidad",
-                    "144. Por tu amor que es el regalo más grande",
-                    "145. Por tu sonrisa cuando digo 'para siempre'",
-                    "146. Por tu forma de hacer que cada día sea una aventura",
-                    "147. Por tu valentía para amar sin reservas",
-                    "148. Por tu amor que es mi hogar",
-                    "149. Por tu forma de ser exactamente lo que necesito",
-                    "150. Por existir y permitirme amarte"
+                    "1 Lo única que eres",
+                    "2 Tus ojos",
+                    "3 Tu carita",
+                    "4 Tu sonrisa",
+                    "5 Lo linda que eres",
+                    "6 Lo hermosa que eres",
+                    "7 Lo especial que eres",
+                    "8 Tu forma de ser",
+                    "9 La forma en que me tratas",
+                    "10 Las foticos que me mandas",
+                    "11 Lo feliz que me haces",
+                    "12 Lo lindo que me tratas",
+                    "13 Como me haces sentir valorado",
+                    "14 Tu personalidad",
+                    "15 Tu forma de amar",
+                    "16 Como me escuchas",
+                    "17 Como me miras",
+                    "18 Lo inteligente que eres",
+                    "19 Como me entiendes",
+                    "20 Como me enamoras todos los días",
+                    "21 La emoción que me provocas",
+                    "22 Lo tierna que eres",
+                    "23 Lo consentida que eres",
+                    "24 Lo celosita jsjsjs",
+                    "25 Tu cabello",
+                    "26 Tu nariz",
+                    "27 Tus manos",
+                    "28 Cuando te enojas sjsks",
+                    "29 Lo preciosa que eres",
+                    "30 La seguridad que me das",
+                    "31 Lo atenta que eres",
+                    "32 Lo amable que eres",
+                    "33 Cuando estás alado mío",
+                    "34 Cuando me abrazas",
+                    "35 Cuando hablo contigo",
+                    "36 Cuando me das la mano",
+                    "37 Cuando me das besitos",
+                    "38 Lo tranquilo que me haces sentir",
+                    "39 Tus caricias",
+                    "40 Tu confianza",
+                    "41 La confianza que me das",
+                    "42 Cuando salimos",
+                    "43 Cuando me dices te amo",
+                    "44 Cuando me dices que soy el mejor",
+                    "45 Cuando muestras tu interés conmigo",
+                    "46 Lo noble que eres",
+                    "47 Cuando me dices que me quieres",
+                    "48 El cariño que me das",
+                    "49 Tu increíble forma de vestir",
+                    "50 Tu peinado",
+                    "51 Lo dedicada que eres",
+                    "52 Lo feliz que eres",
+                    "53 Lo alegre que eres",
+                    "54 Cuando me haces sentir que todo es posible",
+                    "55 Cuando me haces sentir nervioso",
+                    "56 Cuando me presentaste con tu familia",
+                    "57 Cuando me dices cosas bonitas",
+                    "58 Cuando me haces sentir amado",
+                    "59 Cuando me haces sentir querido",
+                    "60 Cuando me entiendes",
+                    "61 Que siempre estás para mí",
+                    "62 Tu estilo",
+                    "63 Cuando me hiciste mi primera carta",
+                    "64 Cuando me das regalitos",
+                    "65 Cuando me das un colerito",
+                    "66 Cuando me presumes ( tengo que presumirte más jsjsjs)",
+                    "67 Cuando no me juzgas",
+                    "68 Cuando me dedicas canciones",
+                    "69 Cuando me mandas fotos de milu y luna",
+                    "70 Cuando me mandas un vídeo de que estás haciendo",
+                    "71 Cuando compartimos momentos lindos",
+                    "72 La paciencia que me tienes",
+                    "73 Cuando por primera vez me dijiste te amo",
+                    "74 Lo divertida que eres",
+                    "75 Lo comprensiva que eres",
+                    "76 Lo honesta que eres",
+                    "77 Lo sincera que eres",
+                    "78 Las promesas que me haces",
+                    "79 El futuro que quieres",
+                    "80 Los sueños que tienes",
+                    "81 Cuando me haces soñar todo un mundo contigo",
+                    "82 Cuando me dices mi niño",
+                    "83 Cuando me dices te amo",
+                    "84 Cuando me dices mi vida",
+                    "85 La paz que me generas",
+                    "86 Cuando me dices que si quieres tener hijitos",
+                    "87 Cuando te veo en los descansos",
+                    "88 Cuando me agarras el brazo",
+                    "89 Tu pasión con el voley",
+                    "90 La forma en que mejoras todos los días",
+                    "91 Cuando me muerdes",
+                    "92 Como te esfuerzas por ser mejor",
+                    "93 Tu linda voz",
+                    "94 Tu compañía al estar conmigo cuando me siento solo",
+                    "95 Tu amor por los animalitos",
+                    "96 Cuando me dices que te diviertes conmigo",
+                    "97 Cuando me das cumplidos",
+                    "98 Cuando me cuentas como te fue hoy",
+                    "99 Cuando me cuentas lo divertido que pasa en tus días",
+                    "100 Cuando te reposas en mi hombro",
+                    "101 Que creas en mi",
+                    "102 Que confías en mí",
+                    "103 Cuando hacemos llamada",
+                    "104 Cuando juegas conmigo un jueguito",
+                    "105 Cuando me mencionas en un reel",
+                    "106 Cuando me hiciste recibir mi primer te amo",
+                    "107 Cuando me hiciste sentir por primera vez amado",
+                    "108 Cuando soñamos que nos casaremos",
+                    "109 Cuando disfrutas cuando salimos",
+                    "110 La felicidad que me generas al ver tus fotos",
+                    "111 El orgullo que me das de decir que eres tú mi novia",
+                    "112 Cuando haces que todo contigo es increíble",
+                    "113 Cuando te alegras por mí",
+                    "114 Cuando me felicitas por lo que alcanzo en the gym",
+                    "115 Cuando me causas pensamientos bonitos contigo",
+                    "116 Cuando te preocupas por mí",
+                    "117 Cuando me hiciste hacer mi primera carta a alguien",
+                    "118 Como me motivas a ser mejor por ti",
+                    "119 Por hacerme pasar mi primer 14 de febrero amado",
+                    "120 Que seas como mi sueño perfecto",
+                    "121 Que seas mi princesa",
+                    "122 Que seas mi mujer",
+                    "123 Cuando intento ser más creativo por ti",
+                    "124 Cuando me diste esa hermosa carta sin necesidad de tener una fecha específica",
+                    "125 Cuando me haces sentir especial",
+                    "126 Cuando me invitaste a tu casita",
+                    "127 Que tengamos la oportunidad de aprender juntos",
+                    "128 Cuando me dijiste que te causo nervios",
+                    "129 Cuando te pienso todos los días",
+                    "130 La creatividad que tienes",
+                    "131 Cuando me diste esa manilla que significa tanto para mí",
+                    "132 Cuando me diste un poster en la feria del libro",
+                    "133 Cuando me diste un lego con un mensaje bonito",
+                    "134 La primer vez que me dijiste te quiero mucho",
+                    "135 Que estás conmigo en las buenas y en las malas",
+                    "136 Cuando me cuentas que te fue re bien en tus notas",
+                    "137 Cuando me mostraste a milu y luna",
+                    "138 Cuando me hiciste toda una playlist",
+                    "139 Cuando me diste 100 razones para amarme",
+                    "140 La primer vez que me abrazaste",
+                    "141 Que seas mi niña hermosa",
+                    "142 Que seas la persona con la que quiero todo",
+                    "143 Que seas esa niña que daría todo por ti",
+                    "144 Que seas lo que siempre quise",
+                    "145 Cuando arreglamos nuestros problemas",
+                    "146 Cuando superamos todos los obstáculos",
+                    "147 Que nunca te rindas por mí",
+                    "148 Por todos estos meses junto a ti (ya casi el año jsjsjs)",
+                    "149 Que seas mi primera y única novia",
+                    "150 Absolutamente todo de ti es perfecto, los momentos que compartimos, como eres, como me haces sentir simplemente haces que esté en un sueño y tú eres la que lo hace realidad mi vida, nunca serán suficientes las palabras para decir todo lo que te amo y aprecio y realmente estoy tan feliz de que seas tú la persona con la que quiero pasar el resto de mi vida."
                 ];
                 
-                reasons.forEach(reason => {
+                reasons.forEach((reason, index) => {
                     const reasonElement = document.createElement('div');
-                    reasonElement.classList.add('reason');
-                    reasonElement.innerHTML = `<span class="reason-number">${reason.split('.')[0]}.</span> ${reason.split('.').slice(1).join('.')}`;
+                    
+                    if (index === 149) {
+                        reasonElement.classList.add('reason', 'reason-150');
+                    } else {
+                        reasonElement.classList.add('reason');
+                    }
+                    
+                    const firstSpaceIndex = reason.indexOf(' ');
+                    let numberPart = '';
+                    let textPart = reason;
+                    
+                    if (firstSpaceIndex !== -1) {
+                        numberPart = reason.substring(0, firstSpaceIndex);
+                        textPart = reason.substring(firstSpaceIndex + 1);
+                    }
+                    
+                    if (numberPart && !isNaN(numberPart)) {
+                        reasonElement.innerHTML = `<span class="reason-number">${numberPart}</span> ${textPart}`;
+                    } else {
+                        reasonElement.textContent = reason;
+                    }
+                    
                     reasonsContainer.appendChild(reasonElement);
                 });
             }
             
-            // Abrir la carta al hacer clic en el sobre
             envelopeContainer.addEventListener('click', function() {
-                // Animación del sobre
                 envelopeContainer.classList.add('open');
                 
-                // Ocultar el sobre después de la animación
                 setTimeout(() => {
                     envelopeContainer.classList.add('hidden');
                     header.classList.add('hidden');
                     
-                    // Generar las 150 razones
                     generateReasons();
                     
-                    // Mostrar la carta y elementos adicionales
                     setTimeout(() => {
                         letterContainer.classList.add('show-letter-container');
-                        message.classList.add('show-message');
                         
-                        // Mostrar elementos con retraso
                         setTimeout(() => {
+                            countdownTitle.classList.add('show-countdown-title');
                             countdown.classList.add('show-countdown');
                         }, 1000);
                         
-                        // Desplazar suavemente a la carta
                         setTimeout(() => {
                             letterContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
                         }, 500);
                     }, 500);
                 }, 1000);
                 
-                // Crear corazones que caen
                 createHearts();
-                
-                // Reproducir sonido de carta
                 playSound();
-                
-                // Reproducir música de fondo
                 playBackgroundMusic();
             });
             
-            // Función para crear fondo especial
             function createBackground() {
-                // Crear estrellas
                 const starsCount = 150;
                 
                 for (let i = 0; i < starsCount; i++) {
                     const star = document.createElement('div');
                     star.classList.add('star');
                     
-                    // Tamaño aleatorio
                     const size = Math.random() * 3;
                     star.style.width = size + 'px';
                     star.style.height = size + 'px';
                     
-                    // Posición aleatoria
                     star.style.left = Math.random() * 100 + 'vw';
                     star.style.top = Math.random() * 100 + 'vh';
                     
-                    // Duración de animación aleatoria
                     const duration = Math.random() * 5 + 3;
                     star.style.setProperty('--duration', duration + 's');
                     
-                    // Retraso aleatorio
                     star.style.animationDelay = Math.random() * 5 + 's';
                     
                     background.appendChild(star);
                 }
                 
-                // Crear corazones flotantes
                 const heartsCount = 15;
                 
                 for (let i = 0; i < heartsCount; i++) {
@@ -1283,26 +1227,21 @@
                     heart.classList.add('floating-heart');
                     heart.innerHTML = '❤';
                     
-                    // Tamaño aleatorio
                     const size = Math.random() * 30 + 20;
                     heart.style.fontSize = size + 'px';
                     
-                    // Posición aleatoria
                     heart.style.left = Math.random() * 100 + 'vw';
                     heart.style.top = Math.random() * 100 + 'vh';
                     
-                    // Duración de animación aleatoria
                     const duration = Math.random() * 10 + 10;
                     heart.style.setProperty('--float-duration', duration + 's');
                     
-                    // Retraso aleatorio
                     heart.style.animationDelay = Math.random() * 5 + 's';
                     
                     background.appendChild(heart);
                 }
             }
             
-            // Función para crear corazones que caen
             function createHearts() {
                 const heartCount = 50;
                 
@@ -1311,40 +1250,32 @@
                     heart.innerHTML = '❤';
                     heart.classList.add('heart-fall');
                     
-                    // Posición aleatoria
                     heart.style.left = Math.random() * 100 + 'vw';
                     
-                    // Duración aleatoria
                     heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
                     
-                    // Tamaño aleatorio
                     const size = Math.random() * 25 + 15;
                     heart.style.fontSize = size + 'px';
                     
                     heartsContainer.appendChild(heart);
                     
-                    // Eliminar el corazón después de la animación
                     setTimeout(() => {
                         heart.remove();
                     }, 5000);
                 }
             }
             
-            // Función para reproducir sonido
             function playSound() {
                 try {
-                    // Crear contexto de audio
                     const AudioContext = window.AudioContext || window.webkitAudioContext;
                     const audioCtx = new AudioContext();
                     
-                    // Crear oscilador para sonido de carta
                     const oscillator = audioCtx.createOscillator();
                     const gainNode = audioCtx.createGain();
                     
                     oscillator.connect(gainNode);
                     gainNode.connect(audioCtx.destination);
                     
-                    // Configurar el sonido
                     oscillator.type = 'sine';
                     oscillator.frequency.setValueAtTime(440, audioCtx.currentTime);
                     oscillator.frequency.exponentialRampToValueAtTime(880, audioCtx.currentTime + 0.1);
@@ -1352,7 +1283,6 @@
                     gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
                     gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.2);
                     
-                    // Reproducir
                     oscillator.start();
                     oscillator.stop(audioCtx.currentTime + 0.3);
                 } catch (e) {
